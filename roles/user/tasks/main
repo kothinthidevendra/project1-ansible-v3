@@ -1,0 +1,22 @@
+- name: app-setup
+  include_role: 
+    name: common
+    tasks_from: app-setup
+
+- name: nodejs installation
+  include_role:
+    name: common
+    tasks_from: nodejs
+
+- name: systemd-setup
+  include_role:
+    name: common
+    tasks_from: systemd-setup
+
+- name: restart app
+  include_role:
+    name: common
+    tasks_from: restart-application
+
+
+

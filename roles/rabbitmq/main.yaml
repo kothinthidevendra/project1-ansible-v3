@@ -1,0 +1,31 @@
+  - name: copy the rabbitmq repo 
+    copy:
+      src: rabbitmq.repo
+      dest: /etc/yum.repos.d/rabbitmq.repo
+
+  - name: installation of rabbitmq server
+    package:
+      name: rabbitmq-server
+      state: present
+
+  - name: enabling and starting rabbitmq
+    service:
+      name: rabbitmq-server
+      state: started
+      enabled: yes
+
+  - name: adding roboshop user in rabbitmq
+    community.rabbitmq.rabbitmq_user:
+      user: "{{ vault_rabbitmq_user }}"
+      password: "{{ vault_rabbitmq_password }}"
+      vhost: /
+      configure_priv: .*
+      write_priv: .*
+      read_priv: .*
+      state: present
+
+  - name: enabling and starting rabbitmq
+    service:
+      name: rabbitmq-server
+      state: restarted
+      enabled: yes
