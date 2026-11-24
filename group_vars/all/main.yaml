@@ -7,14 +7,14 @@
 # rabbitmq_user: "{{ vault_rabbitmq_user }}"
 # rabbitmq_password: "{{ vault_rabbitmq_password }}"
 
-mongodb_host: mongodb.joindevops.store
-redis_host: redis.joindevops.store
-mysql_host: mysql.joindevops.store
-rabbitmq_host: rabbitmq.joindevops.store
-catalogue_host: catalogue.joindevops.store
-user_host: user.joindevops.store
-cart_host: cart.joindevops.store
-shipping_host: shipping.joindevops.store
-payment_host: payment.joindevops.store
+mongodb_host: mongodb-{{ env}}.joindevops.store
+redis_host: redis-{{ env}}.joindevops.store
+mysql_host: mysql-{{ env}}.joindevops.store
+rabbitmq_host: rabbitmq-{{ env}}.joindevops.store
+catalogue_host: catalogue-{{ env}}.joindevops.store
+user_host: user-{{ env}}.joindevops.store
+cart_host: cart-{{ env}}.joindevops.store
+shipping_host: shipping-{{ env}}.joindevops.store
+payment_host: payment-{{ env}}.joindevops.store
 
 # mysql_root_password: RoboShop@1
